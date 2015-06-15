@@ -17,7 +17,6 @@ def main():
     r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=nsl1oc1p2' % syms)
     clean = r.content
     clean = clean.replace('"', '')
-    print clean
     syms = []
     for line in clean.splitlines():
         line = line.split(',')
