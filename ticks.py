@@ -21,7 +21,7 @@ def main():
     for line in clean.splitlines():
         line = line.split(',')
         syms.append(line)
-    print tabulate(syms, headers=['Name', 'Symbol', 'Price', 'Open', 'Change', 'Change%'])
+    print tabulate(syms, headers=['Name', 'Symbol', 'Price', 'Open', 'Change', 'Change%'], floatfmt=".2f")
 
 if __name__ == '__main__':
     main()
