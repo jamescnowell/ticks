@@ -15,13 +15,13 @@ def main():
     args = parse_args()
     syms = ','.join(args.input)
     r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=nsl1oc1p2' % syms)
-    clean = r.content
-    clean = clean.replace('"', '')
+    clean = r.text
+    clean = clean.replace('\"', '')
     syms = []
     for line in clean.splitlines():
         line = line.split(',')
         syms.append(line)
-    print tabulate(syms, headers=['Name', 'Symbol', 'Price', 'Open', 'Change', 'Change%'], floatfmt=".2f")
+    print(tabulate(syms, headers=['Name', 'Symbol', 'Price', 'Open', 'Change', 'Change%'], floatfmt=".2f"))
 
 if __name__ == '__main__':
     main()
