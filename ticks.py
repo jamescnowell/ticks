@@ -1,5 +1,7 @@
 import argparse
 import requests
+import csv
+import StringIO
 from tabulate import tabulate
 
 
@@ -16,11 +18,11 @@ def main():
     syms = ','.join(args.input)
     r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=nsl1oc1p2' % syms)
     clean = r.text
-    clean = clean.replace('\"', '')
     syms = []
-    for line in clean.splitlines():
-        line = line.split(',')
-        syms.append(line)
+    print(clean)
+    reader = csv.reader(StringIO.StringIO(clean), delimiter=",", quotechar='"')
+    for row in reader:
+        syms.append(row)
     print(tabulate(syms, headers=['Name', 'Symbol', 'Price', 'Open', 'Change', 'Change%'], floatfmt=".2f"))
 
 if __name__ == '__main__':
