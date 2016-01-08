@@ -14,7 +14,7 @@ setup(
     install_requires=['requests', 'tabulate'],
     entry_points={
         'console_scripts': [
-            'ticks=tickscode:main'
+            'ticks=ticks:main'
         ]
     }
 )
