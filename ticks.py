@@ -19,7 +19,6 @@ def main():
     r = requests.get('http://download.finance.yahoo.com/d/quotes.csv?s=%s&f=nsl1oc1p2' % syms)
     clean = r.text
     syms = []
-    print(clean)
     reader = csv.reader(StringIO.StringIO(clean), delimiter=",", quotechar='"')
     for row in reader:
         syms.append(row)

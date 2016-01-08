@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ticks',
-    version='0.1.4',
+    version='0.1.5',
     author='James Nowell',
     author_email='jnowell129@gmail.com',
     url='https://github.com/jamescnowell/ticks',
